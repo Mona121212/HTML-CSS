@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
+
+    <!-- meta viewport → controls page scaling and layout baseline on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JoyShop - Your One-Stop Online Store</title>
     <style>
@@ -35,14 +38,19 @@
             background-color: white;
             border-radius: 5px;
         }
+
+        /*product list: row on large screens, column on small screen*/
         .product-list {
             display: flex;
             gap: 20px;
+            flex-wrap:wrap; /* Allow wrapping for smaller screens */
         }
         .product-item {
+            flex: 1 1 200px; /*mininum width 200px, otherwise share space equally*/
             border: 1px solid #ddd;
             padding: 10px;
             border-radius: 5px;
+            box-sizing: border-box;
             width: 200px;
         }
         .product-item h3 {
@@ -63,16 +71,19 @@
         }
 
         /* set name and email input  */
-form input[type="text"],
-form input[type="email"] {
-    width: 50%;  
-}
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;  /*take full width of the container*/
+            max-width: 500px; /*limit max width to 500px*/
+        }
 
-/* message */
-form textarea {
-    width: 50%;   
-    min-height: 120px; 
-}
+        /* message */
+        form textarea {
+            width: 50%;   
+            min-height: 120px; 
+        }
+        /* submit button */
         form input[type="submit"] {
             background-color: #35424a;
             color: white;
@@ -83,10 +94,38 @@ form textarea {
             font-size: 16px;
             transition: background-color 0.3s ease;
             margin-top: 10px;
-            width: 50%;
+            width: 100%;
+            max-width: 200px;
+
+            align-self: flex-start; /*align to the left not full row*/
         }
         form input[type="submit"]:hover {
             background-color: #45a049;
+        }
+
+        /* @media → applies different CSS styles based on device conditions (e.g. screen width, orientation) */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block; /*navigation stacked vertically on small screen*/
+                margin: 10px 0;
+            }
+            .product-list {
+                flex-direction: column; /*products stacked vertically on small screen*/
+            }
+            .product-item {
+                width: 100%; /*full width on small screen*/
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                width: 100%; /*full width on small screen*/
+            }
+
+            form input[type="submit"] {
+                width: 100%; /*full width on small screen*/
+                max-width: none; /*remove max width limit*/
+            }
         }
     </style>
 </head>
