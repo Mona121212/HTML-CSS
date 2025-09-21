@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+
+    <!-- meta viewport → controls page scaling and layout baseline on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyShop - Your One-Stop Online Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            
+        }
+
+
+        header {
+            background-color: #35424a;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        /*product list: row on large screens, column on small screen*/
+        .product-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap:wrap; /* Allow wrapping for smaller screens */
+        }
+        .product-item {
+            flex: 1 1 200px; /*mininum width 200px, otherwise share space equally*/
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            width: 200px;
+        }
+        .product-item h3 {
+            margin-top: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    /* style for input and textarea  common*/
+        form input, form textarea {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+        }
+
+        /* set name and email input  */
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;  /*take full width of the container*/
+            max-width: 500px; /*limit max width to 500px*/
+        }
+
+        /* message */
+        form textarea {
+            width: 50%;   
+            min-height: 120px; 
+        }
+        /* submit button */
+        form input[type="submit"] {
+            background-color: #35424a;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 200px;
+
+            align-self: flex-start; /*align to the left not full row*/
+        }
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* @media → applies different CSS styles based on device conditions (e.g. screen width, orientation) */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block; /*navigation stacked vertically on small screen*/
+                margin: 10px 0;
+            }
+            .product-list {
+                flex-direction: column; /*products stacked vertically on small screen*/
+            }
+            .product-item {
+                width: 100%; /*full width on small screen*/
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                width: 100%; /*full width on small screen*/
+            }
+
+            form input[type="submit"] {
+                width: 100%; /*full width on small screen*/
+                max-width: none; /*remove max width limit*/
+            }
+        }
+    </style>
+</head>
+<body>  
+    <header>
+        <h1>Welcome to JoyShop</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Your One-Stop Online Store</h2>
+        <p>Discover a wide range of products at unbeatable prices. Shop now and enjoy exclusive deals!</p>
+    </section>
+
+    <section id="products">
+        <h2>Featured Products</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <h3>Product 1</h3>
+                <p>Description of Product 1.</p>
+                <p>Price: $10.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <h3>Product 2</h3>
+                <p>Description of Product 2.</p>
+                <p>Price: $20.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- More products can be added here -->
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>JoyShop is dedicated to providing the best online shopping experience. Our mission is to bring joy to your shopping with quality products and excellent customer service.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+</body>
+</html>

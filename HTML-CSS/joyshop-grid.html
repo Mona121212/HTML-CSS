@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+
+    <!-- meta viewport → controls page scaling and layout baseline on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyShop - Your One-Stop Online Store(Grid)</title>
+
+    <style>
+        * {
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "sidebar main-content main-content"
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 10px;
+            min-height: 100vh;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #35424a;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #e2e2e2;
+            padding: 20px;
+            border-radius: 5px;
+            height: fit-content;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /*product list: grid with 2 columns*/
+        .product-list {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+        }
+        
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .main-content {
+            grid-area: main-content;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .footer {
+            grid-area: footer;
+            background-color: #35424a;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="page-grid">
+        <header class="header">
+            <div class="logo">JoyShop</div>
+            <div></div>
+            <nav>
+                <ul>
+                    <li><a href="joyshop.html">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <aside class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Home & Garden</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Toys</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section>
+                <h2>Featured Products</h2>
+                <div class="product-list">
+                    <div class="product-item">
+                        <h3>Product 1</h3>
+                        <p>Description of Product 1.</p>
+                        <p>Price: $10.00</p>
+                        <form>
+                            <input type="number" name="quantity" min="1" value="1">
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                    <div class="product-item">
+                        <h3>Product 2</h3>
+                        <p>Description of Product 2.</p>
+                        <p>Price: $20.00</p>
+                        <form>
+                            <input type="number" name="quantity" min="1" value="1">
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                    <div class="product-item">
+                        <h3>Product 3</h3>
+                        <p>Description of Product 3.</p>
+                        <p>Price: $30.00</p>
+                        <form>
+                            <input type="number" name="quantity" min="1" value="1">
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 JoyShop. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
